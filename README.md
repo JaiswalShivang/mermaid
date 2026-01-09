@@ -1,57 +1,81 @@
-# AI Resume Builder & Career Platform - Workflow
+# AI Resume Builder & Career Platform - Complete Workflow
 
 ```mermaid
 flowchart TD
-    %% User Upload & AI Enhancement
+    %% =======================
+    %% Main Sections Overview
+    %% =======================
+    section1[Resume Enhancement]
+    section2[Job Alerts]
+    section3[Application Tracker]
+    section4[Community Platform]
+    section5[Notifications]
+    section6[Exports & Backup]
+
+    %% =======================
+    %% Resume Enhancement Flow
+    %% =======================
     subgraph Resume_Enhancement["Resume Upload and AI Enhancement"]
-        A["Upload PDF Resume"] --> B["Text Extraction using pdf-parse"]
-        B --> C["Prompt Engineering: Role + Keywords"]
-        C --> D["Google Gemini 2_5 AI"]
-        D --> E["ATS Score and Improvement Suggestions"]
-        E --> F["Professional Summary Generated"]
-        F --> G["Harvard Template Resume Formatting"]
-        G --> H["Store Enhanced Resume in MongoDB"]
-        H --> I["Download as PDF"]
+        RE1["Upload PDF Resume"] --> RE2["Text Extraction using pdf-parse"]
+        RE2 --> RE3["Prompt Engineering: Role and Keywords"]
+        RE3 --> RE4["Google Gemini 2_5 AI"]
+        RE4 --> RE5["ATS Score and Improvement Suggestions"]
+        RE5 --> RE6["Professional Summary Generated"]
+        RE6 --> RE7["Harvard Template Resume Formatting"]
+        RE7 --> RE8["Store Enhanced Resume in MongoDB"]
+        RE8 --> RE9["Download as PDF"]
     end
 
-    %% Job Alerts
+    %% =======================
+    %% Job Alerts Flow
+    %% =======================
     subgraph Job_Alerts["Job Search and Alerts"]
-        J["Set Job Alerts: Keywords, Location, Salary, Type"] --> K["BullMQ Queue triggers Job Fetch via RapidAPI"]
-        K --> L["Deduplication and Filtering"]
-        L --> M["Email Notification and Real-Time Socket Notification"]
-        M --> N["Job Alert Dashboard: Quick Apply, Save, Track"]
+        JA1["Set Job Alerts: Keywords, Location, Salary, Type"] --> JA2["BullMQ Queue triggers Job Fetch via RapidAPI"]
+        JA2 --> JA3["Deduplication and Filtering"]
+        JA3 --> JA4["Email Notification and Real-Time Socket Notification"]
+        JA4 --> JA5["Job Alert Dashboard: Quick Apply, Save, Track"]
     end
 
-    %% Application Tracker
+    %% =======================
+    %% Application Tracker Flow
+    %% =======================
     subgraph Tracker["Job Application Tracker"]
-        O["Track Application Status: Saved - Applied - Interviewing - Offered - Rejected"] --> P["Add Notes and Comments"]
-        P --> Q["Kanban-Style Dashboard: Drag and Drop Updates"]
-        Q --> R["Statistics Overview: Total Jobs, Status Distribution"]
+        T1["Track Application Status: Saved - Applied - Interviewing - Offered - Rejected"] --> T2["Add Notes and Comments"]
+        T2 --> T3["Kanban-Style Dashboard: Drag and Drop Updates"]
+        T3 --> T4["Statistics Overview: Total Jobs, Status Distribution"]
     end
 
-    %% Community Platform
+    %% =======================
+    %% Community Platform Flow
+    %% =======================
     subgraph Community["Community Platform"]
-        S["Join Channels and Topic-Based Discussions"] --> T["Post, Comment, React"]
-        T --> U["Direct Messaging: Private Rooms"]
-        U --> V["Real-Time Presence Indicators: Online/Offline"]
-        V --> W["Connect with Fellow Job Seekers"]
+        C1["Join Channels and Topic-Based Discussions"] --> C2["Post, Comment, React"]
+        C2 --> C3["Direct Messaging: Private Rooms"]
+        C3 --> C4["Real-Time Presence Indicators: Online/Offline"]
+        C4 --> C5["Connect with Fellow Job Seekers"]
     end
 
-    %% Notifications
+    %% =======================
+    %% Notifications Flow
+    %% =======================
     subgraph Notifications["Notifications and Real-Time Updates"]
-        X["Socket.IO Connection Authenticated"] --> Y["Receive Events: Job Alerts, Messages, Community Updates"]
-        Y --> Z["Frontend Toast Notifications and Email via Nodemailer"]
+        N1["Socket.IO Connection Authenticated"] --> N2["Receive Events: Job Alerts, Messages, Community Updates"]
+        N2 --> N3["Frontend Toast Notifications and Email via Nodemailer"]
     end
 
-    %% Exports & Backup
+    %% =======================
+    %% Exports & Backup Flow
+    %% =======================
     subgraph Exports["Download and Export"]
-        AA["Enhanced Resume PDF Export"] --> AB["Job History and Alerts Export (CSV or JSON)"]
-        AB --> AC["Offline Access and Backup"]
+        E1["Enhanced Resume PDF Export"] --> E2["Job History and Alerts Export (CSV or JSON)"]
+        E2 --> E3["Offline Access and Backup"]
     end
 
-    %% Connecting main workflow
-    I --> J
-    N --> O
-    R --> S
-    W --> X
-    Z --> AA
+    %% =======================
+    %% Connect Main Workflow
+    %% =======================
+    RE9 --> JA1
+    JA5 --> T1
+    T4 --> C1
+    C5 --> N1
+    N3 --> E1
